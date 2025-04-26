@@ -42,6 +42,19 @@ public void Display(){
   }
 }
 
+public void ReverseDisplay(){
+  Node temp = head;
+  while(temp.back != null){
+    temp = temp.back;
+    
+  }
+  System.out.println();
+  while(temp !=null){
+    System.out.print( temp.data + " <-- ");
+    temp = temp.front;
+  }
+  System.out.print("null");
+}
 public static void main(String[] args) {
   My_LinkedList dl = new My_LinkedList();
   dl.createNode(1);
@@ -50,5 +63,6 @@ public static void main(String[] args) {
   dl.createNode(4);
   dl.createNode(5);
   dl.Display();
+  dl.ReverseDisplay();
 }
 }
