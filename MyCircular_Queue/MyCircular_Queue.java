@@ -1,7 +1,5 @@
+package MyCircular_Queue;
 import java.util.Scanner;
-
-
-
 import java.lang.*;
 public class MyCircular_Queue {
   private int front,rear;
