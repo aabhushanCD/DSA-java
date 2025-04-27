@@ -16,6 +16,7 @@ public class circularDoubly {
     Node newNode = new Node(data);
     if(head == null){
       head = newNode;
+      head.pre = head;
       head.next = head;
     }
     else{
@@ -26,6 +27,7 @@ public class circularDoubly {
       newNode.pre = temp;
       temp.next = newNode;    
       newNode.next = head;
+      head.pre = newNode;
     }
   }
   public void display(){
@@ -36,7 +38,7 @@ public class circularDoubly {
     else{
       Node temp = head;
       do{
-        System.out.print(temp.data +" --> ");
+        System.out.print(temp.data +" <--> ");
         temp = temp.next;
       }
       while(temp != head);
