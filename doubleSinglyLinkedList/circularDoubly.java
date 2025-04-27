@@ -12,7 +12,7 @@ public class circularDoubly {
 
   Node head = null;
 
-  public void creaeNode(int data){
+  public void createNode(int data){
     Node newNode = new Node(data);
     if(head == null){
       head = newNode;
@@ -46,15 +46,15 @@ public class circularDoubly {
   
   public static void main(String[] args) {
     circularDoubly dcl = new circularDoubly();
-    dcl.creaeNode(5);
-    dcl.creaeNode(6);
-    dcl.creaeNode(7);
+    dcl.createNode(5);
+    dcl.createNode(6);
+    dcl.createNode(7);
     
-    dcl.creaeNode(8);
-    dcl.creaeNode(9);
+    dcl.createNode(8);
+    dcl.createNode(9);
     dcl.display();
-    dcl.creaeNode(8);
-    dcl.creaeNode(9);
+    dcl.createNode(8);
+    dcl.createNode(9);
     dcl.display();
   }
 }
