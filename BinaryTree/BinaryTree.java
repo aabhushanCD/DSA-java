@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class BinaryTree {
 
 public class Node {
@@ -63,10 +65,32 @@ public void postOrder(Node current){
         postOrder(current.right);
         System.out.print(current.data + " ");
     }
+
 }
+public boolean search(int value){
+    return search(root, value);
+}
+public boolean search (Node current, int value){
+    if(current == null){
+        return false;
+    }
+    if(current.data == value){
+        return true;
+    }
+    else if(current.data > value){
+        return search(current.left, value);
+    }
+    else if(current.data < value){
+        return search(current.right, value);
+    }
+    return false;
+}
+
 public static void main(String[] args) {
     int[] array = {5, 3, 45, 67, 2, 34, 5};
     BinaryTree tree1 = new BinaryTree();
+    Scanner input = new Scanner(System.in);
+    
     for (int a : array) {
         tree1.Insert(a);
     }
@@ -79,6 +103,17 @@ public static void main(String[] args) {
     System.out.println();
     System.out.println("postOrder Traversal of Tree");
     tree1.postOrderTraversal();
-}
-}
 
+
+    while(true){
+    System.out.print("\nEnter the number to search in tree: ");
+    int search  = input.nextInt();
+
+    if(tree1.search(search)){
+        System.out.println("There is " + search + " in the tree");
+    }else{
+        System.out.println("There is not " + search + " in the tree");
+    }
+}
+}
+}
