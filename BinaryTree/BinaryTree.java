@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.Scanner;
 
 public class BinaryTree {
@@ -31,6 +32,36 @@ public Node Insert(Node current, int value) {
     return current;
 } 
 
+// BFS implementation
+    public class MyQueue{
+        int front=0;
+        int rear=0;
+        Node[] array = new Node[100];
+
+    public boolean isEmpty(){
+        return front == rear+1;
+    }
+    public void enqueue(Node node){
+        if(rear == array.length){
+            System.out.println("Queue is full");
+            return;
+        }
+        array[rear++] = node;
+    }
+
+    public Node dequeue(){
+        if(isEmpty()){
+            System.out.println("Queue is empty");
+            return null;
+        }
+        return array[front++];
+        }
+    }
+
+
+
+
+
 // Correct inorder traversal
 public void inOrder(Node current) {
     if (current != null) {
@@ -46,8 +77,6 @@ public void preOrder(Node current){
         preOrder(current.right);
     }
 }
-
-
 public void preOrderTraversal(){
     preOrder(root);
 }
@@ -65,7 +94,6 @@ public void postOrder(Node current){
         postOrder(current.right);
         System.out.print(current.data + " ");
     }
-
 }
 public boolean search(int value){
     return search(root, value);
@@ -86,6 +114,20 @@ public boolean search (Node current, int value){
     return false;
 }
 
+//  Breadth first Search
+public void levelOrder(){
+    if(root == null)return;
+    MyQueue q = new MyQueue();
+    q.enqueue(root);
+
+    while(!q.isEmpty()){
+        Node current = q.dequeue();
+        System.out.println(current.data + " ");
+        if(current.left != null)  q.enqueue(current.left);
+        if(current.right !=null) q.enqueue(current.right);
+    }
+}
+
 public static void main(String[] args) {
     int[] array = {5, 3, 45, 67, 2, 34, 5};
     BinaryTree tree1 = new BinaryTree();
@@ -103,6 +145,9 @@ public static void main(String[] args) {
     System.out.println();
     System.out.println("postOrder Traversal of Tree");
     tree1.postOrderTraversal();
+    System.out.println();
+    System.out.println("\nLevel Order Traversal:");
+    tree1.levelOrder();
 
 
     while(true){
