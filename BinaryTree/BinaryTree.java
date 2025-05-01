@@ -39,7 +39,7 @@ public Node Insert(Node current, int value) {
         Node[] array = new Node[100];
 
     public boolean isEmpty(){
-        return front == rear+1;
+        return front == rear;
     }
     public void enqueue(Node node){
         if(rear == array.length){
@@ -59,7 +59,46 @@ public Node Insert(Node current, int value) {
     }
 
 
+// DFS search 
 
+public class MyStack{
+    int top = -1;
+    Node[] array = new Node[100];
+    
+    public void PushStack(Node node){
+        if(top == array.length-1){
+            System.out.println("Stack is full");
+            return;
+        }
+        array[++top] = node;
+    }
+    public Node PopStack(){
+        if(top == -1){
+            System.out.println("Stack is empty");
+            return null;
+        }
+    return array[top--];
+    }
+}
+
+public void DFS() {
+    if(root == null){
+        System.out.println("No element in Tree DFS error");
+        return;
+    }
+MyStack stack1 = new MyStack();
+stack1.PushStack(root);
+    while(stack1.top != -1){
+        Node current = stack1.PopStack();
+        System.out.print(current.data + " ");
+        if(current.right != null){ 
+            stack1.PushStack(current.right);
+        }
+        if(current.left !=  null){
+            stack1.PushStack(current.left);
+        }
+    } 
+}
 
 
 // Correct inorder traversal
@@ -122,10 +161,12 @@ public void levelOrder(){
 
     while(!q.isEmpty()){
         Node current = q.dequeue();
-        System.out.println(current.data + " ");
+        System.out.print(current.data + " ");
         if(current.left != null)  q.enqueue(current.left);
         if(current.right !=null) q.enqueue(current.right);
+    
     }
+
 }
 
 public static void main(String[] args) {
@@ -148,17 +189,22 @@ public static void main(String[] args) {
     System.out.println();
     System.out.println("\nLevel Order Traversal:");
     tree1.levelOrder();
-
+    System.out.println("\n DFS:");
+    tree1.DFS();
 
     while(true){
-    System.out.print("\nEnter the number to search in tree: ");
-    int search  = input.nextInt();
-
-    if(tree1.search(search)){
-        System.out.println("There is " + search + " in the tree");
-    }else{
-        System.out.println("There is not " + search + " in the tree");
+        System.out.print("\nEnter the number to search in tree: ");
+        int search  = input.nextInt();
+        if(search == -1){
+            System.out.println("Exiting...");
+            break;
+        }
+        if(tree1.search(search)){
+            System.out.println("There is " + search + " in the tree");
+        }else{
+            System.out.println("There is not " + search + " in the tree");
+        }
+    } 
+    input.close();
     }
-}
-}
 }
