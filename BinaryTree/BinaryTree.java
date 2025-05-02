@@ -1,4 +1,4 @@
-import java.lang.reflect.Array;
+
 import java.util.Scanner;
 
 public class BinaryTree {
@@ -27,6 +27,7 @@ public Node Insert(Node current, int value) {
     if (value <= current.data) {
         current.left = Insert(current.left, value);
     } else {
+    
         current.right = Insert(current.right, value);
     }
     return current;
@@ -164,9 +165,7 @@ public void levelOrder(){
         System.out.print(current.data + " ");
         if(current.left != null)  q.enqueue(current.left);
         if(current.right !=null) q.enqueue(current.right);
-    
     }
-
 }
 
 public static void main(String[] args) {
