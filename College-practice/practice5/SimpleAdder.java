@@ -48,15 +48,15 @@ public class SimpleAdder {
         });
 
         // Add components to frame
-    frame.add(label1);
-    frame.add(field1);
-    frame.add(label2);
-    frame.add(field2);
-    frame.add(resultLabel);
-    frame.add(resultField);
-    frame.add(sumButton);
+        frame.add(label1);
+        frame.add(field1);
+        frame.add(label2);
+        frame.add(field2);
+        frame.add(resultLabel);
+        frame.add(resultField);
+        frame.add(sumButton);
 
-    // Show the frame
-    frame.setVisible(true);
+        // Show the frame
+        frame.setVisible(true);
     }
 }
