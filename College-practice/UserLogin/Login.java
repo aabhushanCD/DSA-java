@@ -27,6 +27,10 @@ public class Login {
 
         JButton submit = new JButton("Login");
         submit.setBounds(110, 150, 100, 25);
+        String[] country = { "Nepal", "India", "China" };
+        JComboBox<String> box = new JComboBox<>(country);
+        box.setBounds(150, 150, 150, 25);
+        submit.setBounds(150, 200, 100, 30);
         panel.add(labelUser);
         panel.add(userName);
         panel.add(labelEmail);
@@ -34,6 +38,7 @@ public class Login {
         panel.add(labelPassword);
         panel.add(password);
         panel.add(submit);
+        panel.add(box);
         panel.setLayout(null);
 
         frame.add(panel);
